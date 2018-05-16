@@ -24,3 +24,34 @@ The Linux kernel is an open source software with a quite large scope. Until 2002
 In 2005, the relationship between the community and the commercial company broke down, and the tool's free-of-charge status was revoked. This prompted the Linux community and in particular [Linus Torvalds](https://hu.wikipedia.org/wiki/Linus_Torvalds) to develop their own tool.
 
 Little more about it: https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git
+
+## Git in practice 
+
+### Installation and basic configuration
+Installation:
+Go to https://git-scm.com/downloads and select your OS
+Follow the instructions there to install Git
+
+To check your git version use this command.
+```
+git --version
+```
+Set your username and email for better raging experience. :smile: Joke aside, Git uses a username to associate commits with an identity.
+```
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+```
+Alternatively you can edit the .gitconfig file where you can also set many other paramters. If you don't know where is your ***.gitconfig*** you can check the file location with this command.
+```
+git config --list --show-origin
+```
+Tested with git 2.14.1 but according to this [stackoverflow answer](https://stackoverflow.com/a/2115116/5789008) it works since version 2.8.
+
+
+
+
+
+
+
+
+
