@@ -45,13 +45,42 @@ Alternatively you can edit the .gitconfig file where you can also set many other
 ```
 git config --list --show-origin
 ```
-Tested with git 2.14.1 but according to this [stackoverflow answer](https://stackoverflow.com/a/2115116/5789008) it works since version 2.8.
+Tested with Git 2.14.1 but according to this [stackoverflow answer](https://stackoverflow.com/a/2115116/5789008) it works since version 2.8.
 
+### Starting from scratch
+To initialize a new git repository use the following commit
+```
+git init
+```
+This command creates an empty Git repository - basically a .git directory with subdirectories, The contet of these directories is not part of this begginer guide but if you would like to read about it you can check this [link](https://git-scm.com/docs/git-init). **NOTE**: Running ***git init*** in an existing repository is safe. It will not overwrite things that are already there.
 
+#### The lifecycle of the status of your files
 
+![alt text](https://github.com/NorbertFenk/gitroduction/blob/master/git-lifecycle.png)
 
+Please do the following instructions to get some handson experience.
+So you have a folder and whici is a git repository if you used the ***git init*** command.
+Make a new empty file e.g. with the following command.
+```
+touch first.txt
+```
+At the moment you have an **untracked file** named **first.txt**. To make sure it is realy untracked on your computer write the following command to your terminal.
+```
+git status
+```
+You should see something like this as an output.
+```
+On branch master
 
+No commits yet
 
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	first.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
 
 
 
