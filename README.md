@@ -58,8 +58,8 @@ This command creates an empty Git repository - basically a .git directory with s
 
 ![alt text](https://github.com/NorbertFenk/gitroduction/blob/master/git-lifecycle.png)
 
-Please do the following instructions to get some handson experience.
-So you have a folder and whici is a git repository if you used the ***git init*** command.
+Please do the following instructions to get some hands-on experience.
+So you have a folder which is a git repository if you used the ***git init*** command.
 Make a new empty file e.g. with the following command.
 ```
 touch first.txt
@@ -81,6 +81,96 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
+Untracked basically means that Git sees a file you didn't have in a previous snapshot (commit). Git won't start including it in your commit snapshot until you explicitly tell it to do so. E.g.: It will prevent to accidentally begin including generated binary files.
+To track a new file you should use the ***git add*** command. In this case we would like to track the *first.txt*.
+```
+git add first.txt
+```
+If you run ***git status*** command again you can see your *first.txt* file is now tracked and staged to be committed.
+```
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   first.txt
+```
+The "Changes to be committed" text indicate that it is in ***staged*** state. In this state if you commit the changes what you have done so fare, Git will make a new commit with the given commit message. On the other hand if you do not commit it you can make furhter changes on the *first.txt* file. Please modify the content of the *first.txt*.
+```
+echo "Hello world" > first.txt
+```
+In this case if you use tha ***git status*** command once again you will se something similar to this:
+```
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   first.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   first.txt
+```
+What you see here is that you have added the *first.txt* to the staging area but modify it so Git detect the changes. To move on this state you can use the ***git add first.txt*** command again it should results the next state.
+```
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   first.txt
+```
+Please make our first commit with this command.
+```
+git commit -m "hello"
+```
+After that you should see similar output with different commit id.
+```
+[master (root-commit) f36d68c] hello
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+```
+To check the commits use this command.
+```
+git log
+```
+It will print out all the commits in this repository. At the moment you should see something like this.
+```
+commit f36d68cfbae3ebf3337f70b429fdd3e095f70c9a (HEAD -> master)
+Author: <Author Name> <authorname@xyz.com>
+Date:   Fri May 18 00:15:49 2018 +0200
+
+    hello
+```
+Congratulations, you have done your first commit with Git. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
