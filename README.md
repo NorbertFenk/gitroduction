@@ -177,7 +177,7 @@ Changes to be committed:
 ```
 The next time you commit, the file will be gone and no longer tracked. If you modified the file and added it to the staging area already, you must force the removal with the -f option. This is a safety feature.
 
-What we have done so far:
+### What we have done so far:
 
 * Analyze the git-lifecycle image :heavy_check_mark:
 
