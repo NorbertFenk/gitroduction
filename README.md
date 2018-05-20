@@ -162,10 +162,10 @@ Congratulations, you have done your first commit with Git.
 #### Removing files
 To remove a file from Git, you have to remove it from your tracked files (more accurately, remove it from your staging area) and then commit. The ***git rm*** does that, and also remove the files from your working directory so you do not see it as an untracked file the next time.
 Please do the following steps below:
-1. echo "Delete me from working directory with git rm command" > delete-me.txt
-2. git add delete-me.txt
-3. git commit delete-me.txt -m "delete-me.txt commited"
-4. git rm delete-me.txt
+1. ```echo "Delete me from working directory with git rm command" > delete-me.txt```
+2. ```git add delete-me.txt```
+3. ```git commit delete-me.txt -m "delete-me.txt commited"```
+4. ```git rm delete-me.txt```
 
 If you use ***git status*** in this state you should see something similar to this.
 ```
@@ -190,7 +190,7 @@ The next time you commit, the file will be gone and no longer tracked. If you mo
 * Learned how to remov files from Git :heavy_check_mark:
 
 #### git diff
-If the git status command is too vague for you — you want to know exactly what you changed, not just which files were changed — you can use the git diff command. You’ll probably use it most often to answer these two questions: What have you changed but not yet staged? And what have you staged that you are about to commit? Please follow this short example below.
+If the ***git status*** command is too vague for you — you want to know exactly what you changed, not just which files were changed — you can use the git diff command. You’ll probably use it most often to answer these two questions: What have you changed but not yet staged? And what have you staged that you are about to commit? Please follow this short example below.
 
 ##### What have you changed but not yet staged case
 1. echo "asd asd asd" > git-diff-me.txt
@@ -221,6 +221,45 @@ index 0000000..93255a5
 ``` 
 This command compares your staged changes to your last commit. It’s important to note that git diff by itself doesn’t show all changes made since your last commit — only changes that are still unstaged. **If you’ve staged all of your changes, git diff will give you no output.**
 
+#### .gitignore
+Often, you’ll have a class of files that you don’t want Git to automatically add or even show you as being untracked. These are generally automatically generated files such as log files or files produced by your build system. In such cases, you can create a file listing patterns to match them named .gitignore. Setting up a .gitignore file for your new repository before you get going is generally a good idea so you don’t accidentally commit files that you really don’t want in your Git repository.
+A little example to .gitignore:
+1. write a simple hello world program in C++
+```
+#include <iostream>
+
+int main()
+{
+	std::cout << "Hello world" << std::endl;
+	return 0;
+}
+```
+2. ```echo "*.[oa]" > .gitignore```
+3. ```g++ -c hello.cpp``` This will produce a hello.o file
+4. ```git status```
+```
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.gitignore
+	hello.cpp
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+There is no **hello.o** file. On the other hand, if you remove the **.gitignore** file with
+``` rm .gitignore``` then use the ***git status*** command, you will get this output.
+```
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	hello.cpp
+	hello.o
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+Here you can find some very useful .gitignore example file: https://github.com/github/gitignore
 
 
 
