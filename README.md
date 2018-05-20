@@ -58,6 +58,7 @@ This command creates an empty Git repository - basically a .git directory with s
 
 ![alt text](https://github.com/NorbertFenk/gitroduction/blob/master/git-lifecycle.png)
 
+#### Add files to Git
 Please do the following instructions to get some hands-on experience.
 So you have a folder which is a git repository if you used the ***git init*** command.
 Make a new empty file e.g. with the following command.
@@ -97,7 +98,10 @@ Changes to be committed:
 
 	new file:   first.txt
 ```
-The "Changes to be committed" text indicate that it is in ***staged*** state. In this state if you commit the changes what you have done so fare, Git will make a new commit with the given commit message. On the other hand if you do not commit it you can make furhter changes on the *first.txt* file. Please modify the content of the *first.txt*.
+The "Changes to be committed" text indicate that it is in ***staged*** state. In this state if you commit the changes what you have done so far, Git will make a new commit with the given commit message.
+
+#### Modify files
+On the other hand, if you do not commit it you can make furhter changes on the *first.txt* file. Please modify the content of the *first.txt*.
 ```
 echo "Hello world" > first.txt
 ```
@@ -129,6 +133,8 @@ Changes to be committed:
 
 	new file:   first.txt
 ```
+
+#### Commit changes
 Please make our first commit with this command.
 ```
 git commit -m "hello"
@@ -152,6 +158,39 @@ Date:   Fri May 18 00:15:49 2018 +0200
     hello
 ```
 Congratulations, you have done your first commit with Git. 
+
+#### Removing files
+To remove a file from Git, you have to remove it from your tracked files (more accurately, remove it from your staging area) and then commit. The ***git rm*** does that, and also remove the files from your working directory so you do not see it as an untracked file the next time.
+Please do the following steps below:
+1. echo "Delete me from working directory with git rm command" > delete-me.txt
+2. git add delete-me.txt
+3. git commit delete-me.txt -m "delete-me.txt commited"
+4. git rm delete-me.txt
+
+If you use ***git status*** in this state you should see something similar to this.
+```
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	deleted:    delete-me.txt
+```
+The next time you commit, the file will be gone and no longer tracked. If you modified the file and added it to the staging area already, you must force the removal with the -f option. This is a safety feature.
+
+What we have done so far:
+
+* Analyze the git-lifecycle image :heavy_check_mark:
+
+* Learned how to add files to Git :heavy_check_mark:
+
+* Learned how Git handles modifications :heavy_check_mark:
+ 
+* Learned how to commit changes from the command line :heavy_check_mark:
+
+* Learned how to remov files from Git :heavy_check_mark:
+
+
+
 
 
 
