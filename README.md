@@ -189,8 +189,37 @@ The next time you commit, the file will be gone and no longer tracked. If you mo
 
 * Learned how to remov files from Git :heavy_check_mark:
 
+#### git diff
+If the git status command is too vague for you — you want to know exactly what you changed, not just which files were changed — you can use the git diff command. You’ll probably use it most often to answer these two questions: What have you changed but not yet staged? And what have you staged that you are about to commit? Please follow this short example below.
 
+##### What have you changed but not yet staged case
+1. echo "asd asd asd" > git-diff-me.txt
+2. git add git-diff-me.txt 
+3. echo "asererererereer" >> git-diff-me.txt
 
+To see what you’ve changed but not yet staged, type ***git diff*** with no other arguments:
+If you done with commands, you should see something similar
+```
+diff --git a/git-diff-me.txt b/git-diff-me.txt
+index 93255a5..11e722b 100644
+--- a/git-diff-me.txt
++++ b/git-diff-me.txt
+@@ -1 +1,2 @@
+ asd asd asd
++asererererereer
+```
+##### What have you staged that you are about to commit case
+Assume the previous state, if you use this ***git diff --staged*** you should get an output like this.
+```
+diff --git a/git-diff-me.txt b/git-diff-me.txt
+new file mode 100644
+index 0000000..93255a5
+--- /dev/null
++++ b/git-diff-me.txt
+@@ -0,0 +1 @@
++asd asd asd
+``` 
+This command compares your staged changes to your last commit. It’s important to note that git diff by itself doesn’t show all changes made since your last commit — only changes that are still unstaged. **If you’ve staged all of your changes, git diff will give you no output.**
 
 
 
