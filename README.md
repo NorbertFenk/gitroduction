@@ -418,18 +418,15 @@ If your current branch is set up to track a remote branch, you can use the ```gi
 When you have your project at a point that you want to share, you have to push it upstream. The command for this is simple: ```git push <remote> <branch>```. This command works only if you cloned from a server to which you have write access and if nobody has pushed in the meantime. If you and someone else clone at the same time and they push upstream and then you push upstream, your push will rightly be rejected. You’ll have to fetch their work first and incorporate it into yours before you’ll be allowed to push.
 
 #### Hands-on section
-Prerequisite:
 1. Any of this three account would be fine:
     * github
     * bitbucket
     * gitlab
 2. Add your ssh key: e.g. https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
-3. The work we have done so far
-
-1. https://help.github.com/articles/creating-a-new-repository/ To avoid errors, do not initialize the new repository with README, license, or gitignore files.
-2. At the top of your GitHub repository's Quick Setup page, click to copy the remote repository URL. 
-3. ```git remote add origin remote repository URL```
-4. ```git push origin master```
+3. https://help.github.com/articles/creating-a-new-repository/ To avoid errors, do not initialize the new repository with README, license, or gitignore files.
+4. At the top of your GitHub repository's Quick Setup page, click to copy the remote repository URL. 
+5. ```git remote add origin remote repository URL```
+6. ```git push origin master```
 ```
 Counting objects: 14, done.
 Delta compression using up to 4 threads.
