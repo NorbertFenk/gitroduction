@@ -180,13 +180,9 @@ The next time you commit, the file will be gone and no longer tracked. If you mo
 #### CHECKPOINT 1.:
 
 * Analyze the git-lifecycle image :heavy_check_mark:
-
 * Learned how to add files to Git :heavy_check_mark:
-
 * Learned how Git handles modifications :heavy_check_mark:
- 
 * Learned how to commit changes from the command line :heavy_check_mark:
-
 * Learned how to remov files from Git :heavy_check_mark:
 
 #### git diff
@@ -358,15 +354,10 @@ nothing to commit, working tree clean
 #### CHECKPOINT 2.:
 
 * Learned about **git diff** command :heavy_check_mark:
-
 * Wrote our first **.gitignore** file :heavy_check_mark:
-
 * Learned how to undo things in different stages :heavy_check_mark:
- 
   * **git commit --amend** to add and modify things after commit :heavy_check_mark:
-
   * **git reset HEAD < file >** to unstage staged files  :heavy_check_mark:
-  
   * **git checkout < file >** to discared changes on a modified file  :heavy_check_mark:
   
 **Sources**:
@@ -432,18 +423,30 @@ Prerequisite:
     * github
     * bitbucket
     * gitlab
-2. The work we have done so far.
+2. Add your ssh key: e.g. https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+3. The work we have done so far
 
+1. https://help.github.com/articles/creating-a-new-repository/ To avoid errors, do not initialize the new repository with README, license, or gitignore files.
+2. At the top of your GitHub repository's Quick Setup page, click to copy the remote repository URL. 
+3. ```git remote add origin remote repository URL```
+4. ```git push origin master```
+```
+Counting objects: 14, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (14/14), 1.20 KiB | 614.00 KiB/s, done.
+Total 14 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To github.com:NorbertFenk/asd.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+```
 
+#### CHECKPOINT 3.:
 
-
-
-
-
-
-
-
-
-
-
+* Check repository remotes :heavy_check_mark:
+* Fetching pulling and pushing changes :heavy_check_mark:
+* Create a github user :heavy_check_mark:
+* Register your ssh key to it :heavy_check_mark:
+* Pushing our work to a remote github server :heavy_check_mark:
 
