@@ -145,7 +145,7 @@ After that you should see similar output with different commit id.
  1 file changed, 1 insertion(+)
  create mode 100644 first.txt
 ```
-To check the commits use this command.
+To check the commits use this command. More details about **git log** [here](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
 ```
 git log
 ```
@@ -368,6 +368,71 @@ nothing to commit, working tree clean
   * **git reset HEAD < file >** to unstage staged files  :heavy_check_mark:
   
   * **git checkout < file >** to discared changes on a modified file  :heavy_check_mark:
+  
+**Sources**:
+The checkpoint 1 and 2 contains information [from](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository) here to [this](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things).
+
+### [Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
+To be able to collaborate on any Git project, you need to know how to manage your remote repositories. Remote repositories are versions of your project that are hosted on the Internet or network somewhere.
+
+#### Showing your remotes
+To see which remote servers you have configured, you can run the git remote command. If you use this command in our training repository there will be no output because there is no remot server to that repository. To continue the traning we should get somehow a repository with remotes. To achieve this please follow the instructions below.
+1. ```cd ..```
+2. ```git clone https://github.com/schacon/ticgit```
+```
+Cloning into 'ticgit'...
+remote: Counting objects: 1857, done.
+remote: Total 1857 (delta 0), reused 0 (delta 0), pack-reused 1857
+Receiving objects: 100% (1857/1857), 331.41 KiB | 737.00 KiB/s, done.
+Resolving deltas: 100% (837/837), done.
+```
+If you’ve cloned your repository, you should at least see **origin** — that is the default name Git gives to the server you cloned from.
+```
+cd ticgit
+git remote
+origin
+```
+You can also specify -v, which shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote:
+```
+git remote -v
+origin	https://github.com/schacon/ticgit (fetch)
+origin	https://github.com/schacon/ticgit (push)
+```
+#### Inspecting remote
+If you want to see more information about a particular remote, you can use the **git remote show < remote >** command. In our case we should get this output:
+```
+* remote origin
+  Fetch URL: https://github.com/schacon/ticgit
+  Push  URL: https://github.com/schacon/ticgit
+  HEAD branch: master
+  Remote branches:
+    master tracked
+    ticgit tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
+```
+#### Fetching and pulling from Your remotes
+As you just saw, to get data from your remote projects, you can run:
+``` git fetch <remote> ```
+The command **goes out** to that remote project and **pulls down** all the **data** from that remote project that **you don’t have yet**. If you clone a repository, the command automatically adds that remote repository under the name “origin”. So, ```git fetch origin``` fetches **any new work** that has been pushed to that server **since you cloned (or last fetched from) it**.
+
+:bangbang: ***It’s important to note that the ```git fetch``` command only downloads the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on.*** :bangbang:
+
+We will discuss later about branches but worth to mention the next statement.
+If your current branch is set up to track a remote branch, you can use the ```git pull``` command to **automatically fetch and then merge** that remote branch into your current branch.
+
+#### Pushing to your remotes
+When you have your project at a point that you want to share, you have to push it upstream. The command for this is simple: ```git push <remote> <branch>```. This command works only if you cloned from a server to which you have write access and if nobody has pushed in the meantime. If you and someone else clone at the same time and they push upstream and then you push upstream, your push will rightly be rejected. You’ll have to fetch their work first and incorporate it into yours before you’ll be allowed to push.
+
+#### Hands-on section
+Prerequisite:
+1. Any of this three account would be fine:
+    * github
+    * bitbucket
+    * gitlab
+2. The work we have done so far.
 
 
 
