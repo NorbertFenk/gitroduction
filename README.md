@@ -177,7 +177,7 @@ Changes to be committed:
 ```
 The next time you commit, the file will be gone and no longer tracked. If you modified the file and added it to the staging area already, you must force the removal with the -f option. This is a safety feature.
 
-### What we have done so far:
+#### What we have done so far:
 
 * Analyze the git-lifecycle image :heavy_check_mark:
 
@@ -259,9 +259,45 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-Here you can find some very useful .gitignore example file: https://github.com/github/gitignore
+Here you can find some very useful .gitignore examples: https://github.com/github/gitignore
 
+#### Undoing things
+At any stage, you may want to undo something. Here, we’ll review a few basic tools for undoing changes that you’ve made.
 
+##### Forget something to commit -> git commit --amend
+One of the common undos takes place when you commit too early and possibly forget to add some files, or you mess up your commit message. This case ***git commit --amend*** may help you out.
+1. ```echo "*.[o]" > .gitignore```
+2. ```git add .gitignore hello.cpp```
+3. ```git commit -m "add helloworld program and .gitignore"```
+This point we realize we forgot some file.
+4. ```echo "forgotten txt" >> forgotten.txt```
+5. ```git add forgotten.txt```
+6. ```git commit --amend``` This command will open a text editor where you should see something like the block below. Here you can rewrite the commit message and check the files to be commited.
+```
+add helloworld program and .gitignore
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Mon May 21 10:53:05 2018 +0200
+#
+# On branch master
+# Changes to be committed:
+#       new file:   .gitignore
+#       new file:   forgotten.txt
+#       new file:   hello.cpp
+#
+````
+7. After you exit from the editor should see this output
+```
+[master 13905f6] add helloworld program and .gitignore
+ Date: Mon May 21 10:53:05 2018 +0200
+ 3 files changed, 9 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 forgotten.txt
+ create mode 100644 hello.cpp
+```
+The **amend** command takes your staging area and uses it for the commit. If you’ve made no changes since your last commit (for instance, you run this command immediately after your previous commit), then your snapshot will look exactly the same, and all you’ll change is your commit message.
 
 
 
