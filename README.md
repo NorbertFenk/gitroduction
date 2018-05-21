@@ -177,7 +177,7 @@ Changes to be committed:
 ```
 The next time you commit, the file will be gone and no longer tracked. If you modified the file and added it to the staging area already, you must force the removal with the -f option. This is a safety feature.
 
-#### What we have done so far:
+#### CHECKPOINT 1.:
 
 * Analyze the git-lifecycle image :heavy_check_mark:
 
@@ -299,10 +299,75 @@ add helloworld program and .gitignore
 ```
 The **amend** command takes your staging area and uses it for the commit. If you’ve made no changes since your last commit (for instance, you run this command immediately after your previous commit), then your snapshot will look exactly the same, and all you’ll change is your commit message.
 
+##### Unstaging a Staged file
+Let’s say you’ve changed two files and want to commit them as two separate changes, but you accidentally type git add * and stage them both. How can you unstage one of the two? The git status command reminds you:
+1. ```echo "file should be commited" >> commit-me.txt```
+2. ```echo "file should not be commited" >> do-not-commit-me.txt```
+3. ```git add *```
+```
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
 
+	new file:   commit-me.txt
+	new file:   do-not-commit-me.txt
+```
+4. The answer is in the ***git add***'s output: use the ```git reset HEAD do-not-commit-me.txt``` command.
+```
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
 
+	new file:   commit-me.txt
 
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
 
+	do-not-commit-me.txt
+```
+The command is a bit strange, but it works.
+5. Commit the **commit-me.txt** to make proper state for the next section.
+``` git commit -m "add commit-me.txt" && rm do-not-commit-me.txt```
+
+##### Unmodifying a Modified File
+1. ```git status```
+```
+On branch master
+nothing to commit, working tree clean
+```
+2. ```echo "Additional lines" >> commit-me.txt```
+What if you realize that you don’t want to keep your changes to the **commit-me.txt** file? Luckily, git status tells you how to do that, too.
+This is our ***git status*** output at the moment:
+```
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   commit-me.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+3. ```git checkout commit-me.txt``` will discard our changes as it described the output above
+4. Our ***git status*** output looks like this:
+```
+On branch master
+nothing to commit, working tree clean
+```
+
+#### CHECKPOINT 2.:
+
+* Learned about **git diff** command :heavy_check_mark:
+
+* Wrote our first **.gitignore** file :heavy_check_mark:
+
+* Learned how to undo things in different stages :heavy_check_mark:
+ 
+  * **git commit --amend** to add and modify things after commit :heavy_check_mark:
+
+  * **git reset HEAD < file >** to unstage staged files  :heavy_check_mark:
+  
+  * **git checkout < file >** to discared changes on a modified file  :heavy_check_mark:
 
 
 
