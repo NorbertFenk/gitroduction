@@ -32,6 +32,13 @@ Installation:
 Go to https://git-scm.com/downloads and select your OS
 Follow the instructions there to install Git
 
+[Hint](https://askubuntu.com/a/568596) for Ubuntu users:
+```
+sudo apt-add-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
+```
+
 To check your git version use this command.
 ```
 git --version
