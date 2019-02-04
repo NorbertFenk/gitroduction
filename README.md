@@ -186,11 +186,11 @@ The next time you commit, the file will be gone and no longer tracked. If you mo
 
 #### CHECKPOINT 1.:
 
-* Analyze the git-lifecycle image :heavy_check_mark:
+* Analyzed the git-lifecycle image :heavy_check_mark:
 * Learned how to add files to Git :heavy_check_mark:
 * Learned how Git handles modifications :heavy_check_mark:
 * Learned how to commit changes from the command line :heavy_check_mark:
-* Learned how to remov files from Git :heavy_check_mark:
+* Learned how to remove files from Git :heavy_check_mark:
 
 #### git diff
 If the ***git status*** command is too vague for you — you want to know exactly what you changed, not just which files were changed — you can use the git diff command. You’ll probably use it most often to answer these two questions: What have you changed but not yet staged? And what have you staged that you are about to commit? Please follow this short example below.
