@@ -112,7 +112,7 @@ On the other hand, if you do not commit it you can make furhter changes on the *
 ```
 echo "Hello world" > first.txt
 ```
-In this case if you use tha ***git status*** command once again you will se something similar to this:
+In this case if you use the ***git status*** command once again you will se something similar to this:
 ```
 On branch master
 
