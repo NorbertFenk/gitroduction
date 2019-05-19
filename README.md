@@ -365,7 +365,7 @@ nothing to commit, working tree clean
 * Learned how to undo things in different stages :heavy_check_mark:
   * **git commit --amend** to add and modify things after commit :heavy_check_mark:
   * **git reset HEAD < file >** to unstage staged files  :heavy_check_mark:
-  * **git checkout < file >** to discared changes on a modified file  :heavy_check_mark:
+  * **git checkout < file >** to discard changes on a modified file  :heavy_check_mark:
   
 **Sources**:
 The checkpoint 1 and 2 contains information [from](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository) here to [this](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things).
@@ -374,7 +374,7 @@ The checkpoint 1 and 2 contains information [from](https://git-scm.com/book/en/v
 To be able to collaborate on any Git project, you need to know how to manage your remote repositories. Remote repositories are versions of your project that are hosted on the Internet or network somewhere.
 
 #### Showing your remotes
-To see which remote servers you have configured, you can run the git remote command. If you use this command in our training repository there will be no output because there is no remot server to that repository. To continue the traning we should get somehow a repository with remotes. To achieve this please follow the instructions below.
+To see which remote servers you have configured, you can run the git remote command. If you use this command in our training repository there will be no output because there is no remote server to that repository. To continue the training we should get somehow a repository with remotes. To achieve this please follow the instructions below.
 1. ```cd ..```
 2. ```git clone https://github.com/schacon/ticgit```
 ```
